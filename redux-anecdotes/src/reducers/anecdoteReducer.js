@@ -44,7 +44,7 @@ const anectodeReducer = (state = [], action) => {
   }
 }
 
-export const initializeAnectodes = (anectodes) => {
+export const initializeAnecdotes = (anectodes) => {
   return {
     type: 'INIT_ANECTODES',
     data: anectodes
@@ -58,10 +58,10 @@ export const vote = (id) => {
   }
 }
 
-export const createAnectode = (content) => {
+export const createAnecdote = (data) => {
   return {
     type: 'NEW_ANECTODE',
-    data: asObject(content)
+    data
   }
 }
 
