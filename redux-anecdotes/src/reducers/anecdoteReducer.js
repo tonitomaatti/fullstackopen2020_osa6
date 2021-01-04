@@ -23,7 +23,7 @@ const sortByLikes = (a1, a2) => {
 
 const initialState = anecdotesAtStart.map(asObject)
 
-const anectodeReducer = (state = initialState, action) => {
+const anectodeReducer = (state = [], action) => {
   switch (action.type) {
     case 'VOTE':
       const id = action.data.id
@@ -35,11 +35,19 @@ const anectodeReducer = (state = initialState, action) => {
       return state.map(anectode =>
         anectode.id !== id ? anectode : changedAnectode 
       ).sort(sortByLikes)
-
     case 'NEW_ANECTODE':
       return state.concat(action.data).sort(sortByLikes)
+    case 'INIT_ANECTODES':
+      return action.data
     default:
       return state
+  }
+}
+
+export const initializeAnectodes = (anectodes) => {
+  return {
+    type: 'INIT_ANECTODES',
+    data: anectodes
   }
 }
 
