@@ -1,4 +1,4 @@
-const initialState = 'This is a notification'
+const initialState = null
 
 const notificationReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -15,5 +15,6 @@ export const notify = (content) => {
     data: { content }
   }
 }
+
 
 export default notificationReducer

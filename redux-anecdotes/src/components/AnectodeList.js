@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { vote } from '../reducers/anecdoteReducer'
+import { notify } from '../reducers/notificationReducer'
 
 const AnectodeList = () => {
   const dispatch = useDispatch()
@@ -8,6 +9,10 @@ const AnectodeList = () => {
   
   const newVote = (id) => {
     dispatch(vote(id))
+    dispatch(notify('A vote has been cast'))
+    setTimeout(() => {
+      dispatch(notify(null))
+    }, 5000)
   }
   
   return (
