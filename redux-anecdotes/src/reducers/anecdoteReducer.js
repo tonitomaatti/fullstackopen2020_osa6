@@ -23,7 +23,7 @@ const sortByLikes = (a1, a2) => {
 
 const initialState = anecdotesAtStart.map(asObject)
 
-const reducer = (state = initialState, action) => {
+const anectodeReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'VOTE':
       const id = action.data.id
@@ -57,4 +57,4 @@ export const createAnectode = (content) => {
   }
 }
 
-export default reducer
+export default anectodeReducer
