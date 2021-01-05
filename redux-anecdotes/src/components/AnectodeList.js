@@ -14,8 +14,8 @@ const AnectodeList = () => {
     )
   })
   
-  const newVote = (id) => {
-    dispatch(vote(id))
+  const newVote = (anecdote) => {
+    dispatch(vote(anecdote))
     dispatch(notify('A vote has been cast'))
     setTimeout(() => {
       dispatch(notify(null))
@@ -31,7 +31,7 @@ const AnectodeList = () => {
           </div>
           <div>
             has {anecdote.votes}
-            <button onClick={() => newVote(anecdote.id)}>vote</button>
+            <button onClick={() => newVote(anecdote)}>vote</button>
           </div>
         </div>
       )}
